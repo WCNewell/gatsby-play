@@ -8,9 +8,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import './layout.css'
 import Header from "./header"
-import "./layout.css"
 
 const App = ({ children }) => {
   const data = useStaticQuery(graphql`
