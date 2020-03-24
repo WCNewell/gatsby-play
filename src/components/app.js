@@ -11,6 +11,11 @@ import { useStaticQuery, graphql } from "gatsby"
 import './layout.css'
 import Header from "./header"
 
+// These components from 'styled-components' are not currently causing React hook errors but leaving in for now...
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from './global'
+import { theme } from './theme'
+
 const App = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
