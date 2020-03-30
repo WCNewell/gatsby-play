@@ -1,55 +1,20 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyles } from './global';
+import { theme } from './theme';
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import './layout.css'
-import Header from "./header"
-
-// These components from 'styled-components' are not currently causing React hook errors but leaving in for now...
-import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from './global'
-import { theme } from './theme'
-
-const App = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+function App() {
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <div>
+          <h1>Hello. This is burger menu tutorial</h1>
+          <img src="https://image.flaticon.com/icons/svg/2016/2016012.svg" alt="burger icon" />
+          <small>Icon made by Freepik from www.flaticon.com</small>
+        </div>
+      </>
+    </ThemeProvider>
+  );
 }
-
-App.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default App
+export default App;
