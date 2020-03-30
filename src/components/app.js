@@ -1,33 +1,34 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
+import PropTypes from "prop-types"
 import { ThemeProvider } from 'styled-components';
-import { useOnClickOutside } from '../hooks';
 import { GlobalStyles } from './global';
 import { theme } from './theme';
-import { Burger, Menu } from './Navigation'
 
+import NavBar from './navbar'
 
-function App() {
-  const [open, setOpen] = useState(false);
-  const node = useRef();
-  const menuId = "main-menu";
-
-  useOnClickOutside(node, () => setOpen(false));
-
+const App = ({ children }) => {
+  
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <div ref={node}>
-          <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
-          <Menu open={open} setOpen={setOpen} id={menuId} />
-        </div>
+        <NavBar />
         <div>
           <h1>Hello. This is burger menu tutorial</h1>
-          <img src="https://image.flaticon.com/icons/svg/2016/2016012.svg" alt="burger icon" />
-          <small>Icon made by <a href="https://www.freepik.com/home">Freepik</a> from <a href="https://www.flaticon.com">www.flaticon.com</a></small>
+          
         </div>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
       </>
     </ThemeProvider>
   );
 }
+
+App.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
 export default App
