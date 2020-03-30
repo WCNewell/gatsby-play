@@ -1,55 +1,33 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React, { useState, useRef } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { useOnClickOutside } from '../hooks';
+import { GlobalStyles } from './global';
+import { theme } from './theme';
+import { Burger, Menu } from './Navigation'
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import './layout.css'
-import Header from "./header"
 
-// These components from 'styled-components' are not currently causing React hook errors but leaving in for now...
-import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from './global'
-import { theme } from './theme'
+function App() {
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+  const menuId = "main-menu";
 
-const App = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  useOnClickOutside(node, () => setOpen(false));
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <div ref={node}>
+          <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
+          <Menu open={open} setOpen={setOpen} id={menuId} />
+        </div>
+        <div>
+          <h1>Hello. This is burger menu tutorial</h1>
+          <img src="https://image.flaticon.com/icons/svg/2016/2016012.svg" alt="burger icon" />
+          <small>Icon made by <a href="https://www.freepik.com/home">Freepik</a> from <a href="https://www.flaticon.com">www.flaticon.com</a></small>
+        </div>
+      </>
+    </ThemeProvider>
+  );
 }
-
-App.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
 export default App
