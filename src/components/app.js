@@ -21,7 +21,7 @@ function App() {
           <Menu open={open} setOpen={setOpen} id={menuId} />
         </div>
         <div>
-          <h1>Hello. This is burger menu tutorial</h1>         
+          <h1>Hello. This is burger menu demo</h1>         
         </div>
         <footer>
           © {new Date().getFullYear()}, Built with
