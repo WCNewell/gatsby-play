@@ -5,7 +5,6 @@ import { GlobalStyles } from './global';
 import { theme } from './theme';
 import { Burger, Menu } from './Navigation'
 
-
 function App() {
   const [open, setOpen] = useState(false);
   const node = useRef();
@@ -22,10 +21,13 @@ function App() {
           <Menu open={open} setOpen={setOpen} id={menuId} />
         </div>
         <div>
-          <h1>Hello. This is burger menu tutorial</h1>
-          <img src="https://image.flaticon.com/icons/svg/2016/2016012.svg" alt="burger icon" />
-          <small>Icon made by <a href="https://www.freepik.com/home">Freepik</a> from <a href="https://www.flaticon.com">www.flaticon.com</a></small>
+          <h1>Hello. This is burger menu tutorial</h1>         
         </div>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
       </>
     </ThemeProvider>
   );
