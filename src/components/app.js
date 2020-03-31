@@ -17,11 +17,11 @@ function App() {
       <>
         <GlobalStyles />
         <div ref={node}>
-          <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
-          <Menu open={open} setOpen={setOpen} id={menuId} />
+            <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
+            <Menu open={open} setOpen={setOpen} id={menuId} />
         </div>
         <div>
-          <h1>Hello. This is burger menu demo</h1>         
+          <h1>Hello. This is burger menu demo</h1>
         </div>
         <footer>
           © {new Date().getFullYear()}, Built with
@@ -30,6 +30,7 @@ function App() {
         </footer>
       </>
     </ThemeProvider>
-  );
+  )
 }
+
 export default App
