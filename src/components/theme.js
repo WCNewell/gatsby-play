@@ -1,6 +1,11 @@
-export const theme = {
-  primaryDark: '#0D0C1D',
-  primaryLight: '#EFFFFA',
-  primaryHover: '#ff0dbf',
-  mobile: '576px',
+export const lightTheme = {
+  body: '#EFFFFA',
+  text: '#0D0C1D',
+  hover: '#ff0dbf',
+}
+
+export const darkTheme = {
+  body: '#2B2220',
+  text: '#EFFFFA',
+  hover: '#ff0dbf',
 }
