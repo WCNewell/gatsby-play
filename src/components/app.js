@@ -1,6 +1,6 @@
-import React, { useState }from 'react';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from './global';
+import React, { useState }from 'react'
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from './global'
 import { lightTheme, darkTheme } from './theme'
 import styled from 'styled-components'
 import Header from './header'
@@ -17,39 +17,39 @@ const App = () => {
         }
     }
   
-  return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <>
-        <GlobalStyles />
-        <Header />
-        <div>
-          <ModeButton onClick={toggleTheme}>
-            <img className='mode-button' src={SunIcon} alt="sun icon light mode button" />
-          </ModeButton>
-        </div>
-
-        <div>
-          <h1>Hello. React hook demo for burger menu ala mode</h1>
-        </div>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </>  
-    </ThemeProvider>
-  )
+    return (
+        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+            <>
+                <GlobalStyles />
+                    <Header />
+                    <div>
+                        <ModeButton onClick={toggleTheme}>
+                            <img className='mode-button' src={SunIcon} alt="sun icon light mode button" />
+                        </ModeButton>
+                    </div>
+                    <div>
+                        <h1>Hello. React hook demo for burger menu ala mode</h1>
+                    </div>
+                    <footer>
+                        © {new Date().getFullYear()}, Built with
+                        {` `}
+                        <a href="https://www.gatsbyjs.org">Gatsby</a>
+                        <h5>Icons made by Freepik from www.flaticon.com</h5>
+                    </footer>
+            </>  
+        </ThemeProvider>
+    )
 }
 
 export default App
 
 const ModeButton = styled.button`
-  display: flex;
+    display: flex;
   
-  img {
-    height: 36px;
-    width: 36px;
-  }
+    img {
+        height: 36px;
+        width: 36px;
+    }
 `
 
 
