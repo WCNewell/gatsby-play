@@ -1,21 +1,17 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './global'
-import { Mode } from './mode'
-import { lightTheme, darkTheme, starTheme } from './theme'
+import { useMode } from './mode'
+import { lightTheme, darkTheme } from './theme'
 import Nav from './nav'
 import Toggle from './toggle'
 
 const App = () => {
-    const [theme, toggleTheme] = Mode()
-    const themeMode = (theme) => {
-        if (theme === 'light') {
-            return lightTheme       
-        } else if (theme === 'dark') {
-            return darkTheme
-        } else {
-            return starTheme
-        }
+    const [theme, toggleTheme, componentMounted] = useMode()
+    const themeMode = theme === 'light' ? lightTheme : darkTheme
+    
+    if (!componentMounted) {
+        return <div />
     }
 
     return (
@@ -39,14 +35,3 @@ const App = () => {
 }
 
 export default App
-
-//  const isLight = theme === lightTheme
-//     const isDark = theme === darkTheme
-//     const isStar = theme === starTheme
-//     const themeMode = ({ isLight, isDark }) => (
-//         (!isLight)
-//             ? isStar
-//             : (isDark)
-//             ? isLight
-//             : isDark
-//     )

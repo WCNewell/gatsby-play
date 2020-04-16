@@ -1,24 +1,31 @@
 import { useEffect, useState } from 'react'
 
-export const Mode = () => {
-    const [theme, setTheme] = useState('light')
-    const toggleTheme = () => {
-        if (theme === 'light') {
-            window.localStorage.setItem('theme', 'dark')
-            setTheme('dark')
-        } else if (theme === 'dark') {
-            window.localStorage.setItem('theme', 'light')
-            setTheme('light')
-        } else {
-            window.localStorage.setItem('theme', 'star')
-            setTheme('star')
-        }
+export const useMode = () => {
+  const [theme, setTheme] = useState('light');
+  const [componentMounted, setComponentMounted] = useState(false);
+
+  const setMode = mode => {
+    window.localStorage.setItem('theme', mode)
+    setTheme(mode)
+  };
+
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setMode('dark');
+    } else {
+      setMode('light');
     }
+  };
 
-    useEffect(() => {
-        const localTheme = window.localStorage.getItem('theme')
-        localTheme && setTheme(localTheme)
-    }, [])
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem('theme');
+    if (localTheme) {
+      setTheme(localTheme);
+    } else {
+      setMode('light');
+    }
+    setComponentMounted(true);
+  }, []);
 
-    return [theme, toggleTheme]
-}
+  return [theme, toggleTheme, componentMounted]
+};
