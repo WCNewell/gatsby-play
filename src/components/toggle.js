@@ -1,54 +1,38 @@
 import React from 'react'
-import { func, string } from 'prop-types'
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { ReactComponent as MoonIcon } from '../images/moon.png'
-import { ReactComponent as SunIcon } from '../images/iconfinder_sun_simple_367526.png'
+import SunIcon from '../images/sunpng.png'
+import MoonIcon from '../images/moonpng.png'
+import StarIcon from '../images/starpng.png'
 
 const Toggle = ({ theme, toggleTheme }) => {
-    const isLight = theme === 'light'
-    return (
-        <ToggleContainer onClick={toggleTheme}>
-            <SunIcon />
-            <MoonIcon />
-        </ToggleContainer>
-    )
-}
+    const isDark = theme === 'dark'
 
-Toggle.propTypes = {
-    theme: string.isRequired,
-    toggleTheme: func.isRequired,
+    return (
+        <ModeButton darkTheme={isDark} onClick={toggleTheme}>
+            <img src={SunIcon} alt="Sun icon for light mode" />
+            <img src={MoonIcon} alt="Moon icon for dark mode" />
+            <img src={StarIcon} alt="Star icon for star mode" />
+        </ModeButton>
+    )
 }
 
 export default Toggle
 
-const ToggleContainer = styled.button`
-    background: ${({ theme }) => them.gradient}
-    border: 2px solid ${({ theme }) => theme.toggleBorder}
-    border-radius: 30px;
-    cursor: pointer;
+const ModeButton = styled.div`
     display: flex;
-    font-size: 0.5rem;
-    justify-content: space-between;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 0.5rem;
-    position: relative;
-    width: 8rem;
-    height: 4rem;
+    flex-flow: row norwap;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    padding-bottom: 10px;
 
     img {
-        height: auto;
-        width: 2.5rem;
-        transition: all 0.3s linear;
+        width: 50px;
+        height: 50px;
 
-        // sun icon
-        &:first-child {
-            transform: ${({ lightTheme }) => lightTheme ? 'translateY(0)' : 'translateY(100px)'}
-        
-        // moon icon
-        &:second-child {
-            transform: ${({ lightTheme }) => lightTheme ? 'translateY(-100px)' : 'translateY(0)'} 
+        &:first-of-type {
+            margin-right: 10px;
         }
     }
 `
