@@ -1,5 +1,4 @@
 import React from 'react'
-import { func, string } from 'prop-types';
 import styled from 'styled-components';
 
 import SunIcon from '../images/sunpng.png'
@@ -16,11 +15,6 @@ const Toggle = ({ theme, toggleTheme }) => {
             <img src={StarIcon} alt="Star icon for star mode" />
         </ModeButton>
     )
-}
-
-Toggle.propTypes = {
-  theme: string.isRequired,
-  toggleTheme: func.isRequired,
 }
 
 export default Toggle

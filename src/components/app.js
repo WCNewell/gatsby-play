@@ -1,9 +1,10 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { Mode } from './mode'
 import { GlobalStyles } from './global'
+import { Mode } from './mode'
 import { lightTheme, darkTheme, starTheme } from './theme'
-import Header from './header'
+import Nav from './nav'
+import Toggle from './toggle'
 
 const App = () => {
     const [theme, toggleTheme] = Mode()
@@ -21,8 +22,8 @@ const App = () => {
         <ThemeProvider theme={themeMode}>
             <>
                 <GlobalStyles />
-                <Mode theme={theme} toggleTheme={toggleTheme} />
-                <Header />
+                <Toggle theme={theme} toggleTheme={toggleTheme} />
+                <Nav />
                 <div>
                     <h1>Hello. React hook demo for burger menu ala mode</h1>
                 </div>
