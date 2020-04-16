@@ -1,41 +1,37 @@
-import React, { useState }from 'react'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
+import { Mode } from './mode'
 import { GlobalStyles } from './global'
-import { lightTheme, darkTheme } from './theme'
-import styled from 'styled-components'
+import { lightTheme, darkTheme, starTheme } from './theme'
 import Header from './header'
-import SunIcon from '../images/iconfinder_sun_simple_367526.png'
-
 
 const App = () => {
-    const [theme, setTheme] = useState('light')
-    const toggleTheme = () => {
+    const [theme, toggleTheme] = Mode()
+    const themeMode = (theme) => {
         if (theme === 'light') {
-            setTheme('dark')
+            return lightTheme       
+        } else if (theme === 'dark') {
+            return darkTheme
         } else {
-            setTheme('light')
+            return starTheme
         }
     }
-  
+
     return (
-        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <ThemeProvider theme={themeMode}>
             <>
                 <GlobalStyles />
-                    <Header />
-                    <div>
-                        <ModeButton onClick={toggleTheme}>
-                            <img className='mode-button' src={SunIcon} alt="sun icon light mode button" />
-                        </ModeButton>
-                    </div>
-                    <div>
-                        <h1>Hello. React hook demo for burger menu ala mode</h1>
-                    </div>
-                    <footer>
-                        © {new Date().getFullYear()}, Built with
-                        {` `}
-                        <a href="https://www.gatsbyjs.org">Gatsby</a>
-                        <h5>Icons made by Freepik from www.flaticon.com</h5>
-                    </footer>
+                <Mode theme={theme} toggleTheme={toggleTheme} />
+                <Header />
+                <div>
+                    <h1>Hello. React hook demo for burger menu ala mode</h1>
+                </div>
+                <footer>
+                    © {new Date().getFullYear()}, Built with
+                    {` `}
+                    <a href="https://www.gatsbyjs.org">Gatsby</a>
+                    <h5>Icons from iconfinder.com</h5>
+                </footer>
             </>  
         </ThemeProvider>
     )
@@ -43,13 +39,13 @@ const App = () => {
 
 export default App
 
-const ModeButton = styled.button`
-    display: flex;
-  
-    img {
-        height: 36px;
-        width: 36px;
-    }
-`
-
-
+//  const isLight = theme === lightTheme
+//     const isDark = theme === darkTheme
+//     const isStar = theme === starTheme
+//     const themeMode = ({ isLight, isDark }) => (
+//         (!isLight)
+//             ? isStar
+//             : (isDark)
+//             ? isLight
+//             : isDark
+//     )
