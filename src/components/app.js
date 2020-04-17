@@ -2,14 +2,22 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './global'
 import { useMode } from './mode'
-import { lightTheme, darkTheme } from './theme'
+import { lightTheme, darkTheme, starTheme } from './theme'
 import Nav from './nav'
 import Toggle from './toggle'
 
 const App = () => {
     const [theme, toggleTheme, componentMounted] = useMode()
-    const themeMode = theme === 'light' ? lightTheme : darkTheme
-    
+    const themeMode = (theme) => {
+        if (theme = 'light') {
+            return lightTheme
+        } else if (theme = 'dark') {
+            return darkTheme
+        } else {
+            return starTheme
+        }
+    }
+        
     if (!componentMounted) {
         return <div />
     }
