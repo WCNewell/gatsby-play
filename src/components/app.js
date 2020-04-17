@@ -8,7 +8,16 @@ import Toggle from './toggle'
 
 const App = () => {
     const [theme, toggleTheme, componentMounted] = useMode()
+    
     const themeMode = theme === 'light' ? lightTheme : darkTheme
+    
+    // const themeMode = (theme) => {
+    //     if (theme === 'light') {
+    //         return lightTheme
+    //     } else {
+    //         return darkTheme
+    //     }
+    // }
     
     if (!componentMounted) {
         return <div />
