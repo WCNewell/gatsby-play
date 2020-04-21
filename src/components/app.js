@@ -9,12 +9,13 @@ import Toggle from './toggle'
 const App = () => {
     const [theme, toggleLightTheme, toggleDarkTheme, toggleStarTheme, componentMounted] = useMode()
       
-    // const themeMode = (theme) === 'light' ? lightTheme : darkTheme
-        
-    const themeMode = (theme) => {
-        if (theme = 'light') {
+    // const themeMode = (theme) === 'light' ? lightTheme : starTheme
+    
+    const themeMode = (theme) => {    
+
+        if (theme === 'light') {
             return lightTheme
-        } else if (theme = 'dark') {
+        } else if (theme === 'dark') {
             return darkTheme
         } else {
             return starTheme
@@ -29,7 +30,10 @@ const App = () => {
         <ThemeProvider theme={themeMode}>
             <>
                 <GlobalStyles />
-                <Toggle theme={theme} toggleTheme={toggleLightTheme, toggleDarkTheme, toggleStarTheme} />
+                <Toggle theme={theme}
+                        toggleLightTheme={toggleLightTheme} 
+                        toggleDarkTheme={toggleDarkTheme}
+                        toggleStarTheme={toggleStarTheme} />
                 <Nav />
                 <div>
                     <h1>Hello. React hook demo for burger menu ala mode</h1>
