@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 export const useMode = () => {
     const [theme, setTheme] = useState('light')
+    
     const [componentMounted, setComponentMounted] = useState(false)
 
     const setMode = mode => {
@@ -30,9 +31,9 @@ export const useMode = () => {
     useEffect(() => {
         const localTheme = window.localStorage.getItem('theme');
             if (localTheme) {
-            setTheme(localTheme)
+                setTheme(localTheme)
             } else {
-            setMode('light')
+                setMode('light')
             }
             setComponentMounted(true)
     }, [])

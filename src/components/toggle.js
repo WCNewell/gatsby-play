@@ -5,18 +5,20 @@ import SunIcon from '../images/sunpng.png'
 import MoonIcon from '../images/moonpng.png'
 import StarIcon from '../images/starpng.png'
 
-const Toggle = ({ toggleLightTheme, toggleDarkTheme, toggleStarTheme }) => {
+const Toggle = ({ theme, toggleLightTheme, toggleDarkTheme, toggleStarTheme }) => {
     
     return (
-        <ModeButton onClick={toggleLightTheme}>
-            <img src={SunIcon} alt="Sun icon for light mode" />
-        </ModeButton>
-        <ModeButton onClick={toggleDarkTheme}>
-            <img src={MoonIcon} alt="Moon icon for dark mode" />
-        </ModeButton>
-        <ModeButton onClick={toggleStarTheme}>
-            <img src={SunIcon} alt="Star icon for star mode" />
-        </ModeButton>
+        <>
+            <ModeButton onClick={toggleLightTheme}>
+                <img src={SunIcon} alt="Sun icon for light mode" />
+            </ModeButton>
+            <ModeButton onClick={toggleDarkTheme}>
+                <img src={MoonIcon} alt="Moon icon for dark mode" />
+            </ModeButton>
+            <ModeButton onClick={toggleStarTheme}>
+                <img src={StarIcon} alt="Star icon for star mode" />
+            </ModeButton>
+        </>
     )
 }
 

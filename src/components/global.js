@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+// The transition property below allows us to make this change a little more smoothly than working with keyframe animations
+
 export const GlobalStyles = createGlobalStyle`
   html, body {
     margin: 0;
@@ -14,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     align-items: center;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
+    transition: all 0.25s linear;
     height: 100vh;
     text-rendering: optimizeLegibility;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";    
