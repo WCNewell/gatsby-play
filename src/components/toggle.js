@@ -5,25 +5,6 @@ import SunIcon from '../images/sunpng.png'
 import MoonIcon from '../images/moonpng.png'
 import StarIcon from '../images/starpng.png'
 
-<<<<<<< Updated upstream
-const Toggle = ({ theme, toggleTheme }) => {
-    const isLight = theme === 'light'
-    const isDark = theme === 'dark'
-    const isStar = theme === 'star'
-
-    return (
-        <>
-            <ModeButton lightTheme={isLight} onClick={toggleTheme}>
-                <img src={SunIcon} alt="Sun icon for light mode" />
-            </ModeButton>
-            <ModeButton darkTheme={isDark} onClick={toggleTheme}>
-                <img src={MoonIcon} alt="Moon icon for dark mode" />
-            </ModeButton>
-            <ModeButton starTheme={isStar} onClick={toggleTheme}>
-                <img src={StarIcon} alt="Star icon for star mode" />
-            </ModeButton>
-        </>
-=======
 const Toggle = ({ toggleLightTheme, toggleDarkTheme, toggleStarTheme }) => {
     
     return (
@@ -36,7 +17,6 @@ const Toggle = ({ toggleLightTheme, toggleDarkTheme, toggleStarTheme }) => {
         <ModeButton onClick={toggleStarTheme}>
             <img src={SunIcon} alt="Star icon for star mode" />
         </ModeButton>
->>>>>>> Stashed changes
     )
 }
 

@@ -9,15 +9,6 @@ export const useMode = () => {
         setTheme(mode)
     }
 
-<<<<<<< Updated upstream
-    const toggleTheme = () => {
-        if (theme === 'light') {
-            setMode('light')
-        } else if (theme === 'dark') {
-            setMode('dark')
-        } else {
-            setMode('star');
-=======
     const toggleLightTheme = () => {
         if (theme === 'dark' || 'star') {
             return setMode('light')
@@ -33,7 +24,6 @@ export const useMode = () => {
     const toggleStarTheme = () => {
         if (theme === 'light' || 'dark') {
             return setMode('star')
->>>>>>> Stashed changes
         }
     }
 
