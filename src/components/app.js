@@ -15,11 +15,13 @@ const App = () => {
     const [lightTheme, toggleLightTheme, componentMounted] = useLightMode()
     const [darkTheme, toggleDarkTheme] = useDarkMode()
     const [starTheme, toggleStarTheme] = useStarMode()
-
+    
+    // const themeMode = theme === 'light' ? lightTheme : darkTheme
+    
     const themeMode = (theme) => {    
-        if (theme === 'light') {
+        if (theme === lightTheme) {
             return lightTheme
-        } else if (theme === 'dark') {
+        } else if (theme === darkTheme) {
             return darkTheme
         } else {
             return starTheme

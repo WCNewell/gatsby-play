@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { starTheme } from '../theme'
+import { lightTheme, darkTheme, starTheme } from '../theme'
 
 export const useStarMode = () => {
     const [theme, setTheme] = useState('light')
@@ -10,7 +10,7 @@ export const useStarMode = () => {
     }
 
     const toggleStarTheme = () => {
-        if (theme === 'light' || 'dark') {
+        if (theme === lightTheme || darkTheme) {
             setMode(starTheme)
         }
     }
