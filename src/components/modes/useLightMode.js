@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import { lightTheme } from '../theme'
 
-export const useMode = () => {
+export const useLightMode = () => {
     const [theme, setTheme] = useState('light')
     
     const [componentMounted, setComponentMounted] = useState(false)
@@ -12,19 +13,7 @@ export const useMode = () => {
 
     const toggleLightTheme = () => {
         if (theme === 'dark' || 'star') {
-            return setMode('light')
-        }
-    }
-    
-    const toggleDarkTheme = () => {
-        if (theme === 'light' || 'star') {
-            return setMode('dark')
-        }
-    }
-
-    const toggleStarTheme = () => {
-        if (theme === 'light' || 'dark') {
-            return setMode('star')
+            setMode(lightTheme)
         }
     }
 
@@ -38,5 +27,5 @@ export const useMode = () => {
             setComponentMounted(true)
     }, [])
 
-    return [theme, toggleLightTheme, toggleDarkTheme, toggleStarTheme, componentMounted]
+    return [theme, toggleLightTheme, componentMounted]
 }
