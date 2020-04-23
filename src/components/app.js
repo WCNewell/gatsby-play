@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { useState }from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './global'
-import { useLightMode } from './modes/useLightMode'
-import { useDarkMode } from './modes/useDarkMode'
-import { useStarMode } from './modes/useStarMode'
+import { lightTheme, darkTheme, starTheme } from './theme';
 import Nav from './nav'
 import styled from 'styled-components'
 
@@ -12,38 +10,30 @@ import MoonIcon from '../images/moonpng.png'
 import StarIcon from '../images/starpng.png'
 
 const App = () => {
-    const [lightTheme, toggleLightTheme, componentMounted] = useLightMode()
-    const [darkTheme, toggleDarkTheme] = useDarkMode()
-    const [starTheme, toggleStarTheme] = useStarMode()
-    
-    // const themeMode = theme === 'light' ? lightTheme : darkTheme
-    
-    const themeMode = (theme) => {    
-        if (theme === lightTheme) {
+    const [theme] = useState(lightTheme)
+
+    const toggleTheme = () => {    
+        if (theme === darkTheme || starTheme) {
             return lightTheme
-        } else if (theme === darkTheme) {
+        } else if (theme === lightTheme || starTheme ) {
             return darkTheme
         } else {
             return starTheme
         }
     }
     
-    if (!componentMounted) {
-        return <div />
-    }
-
     return (
-        <ThemeProvider theme={() => ({themeMode})}>
+        <ThemeProvider theme={({theme})}>
             <>
                 <GlobalStyles />
                <>
-                    <ModeButton theme={lightTheme} onClick={toggleLightTheme}>
+                    <ModeButton theme={lightTheme} onClick={toggleTheme}>
                         <img src={SunIcon} alt="Sun icon for light mode" />
                     </ModeButton>
-                    <ModeButton theme={darkTheme} onClick={toggleDarkTheme}>
+                    <ModeButton theme={darkTheme} onClick={toggleTheme}>
                         <img src={MoonIcon} alt="Moon icon for dark mode" />
                     </ModeButton>
-                    <ModeButton theme={starTheme} onClick={toggleStarTheme}>
+                    <ModeButton theme={starTheme} onClick={toggleTheme}>
                         <img src={StarIcon} alt="Star icon for star mode" />
                     </ModeButton>
                 </>
