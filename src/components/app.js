@@ -1,41 +1,36 @@
 import React, { useState }from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './global'
-import { lightTheme, darkTheme, starTheme } from './theme';
+import { lightTheme, darkTheme } from './theme';
 import Nav from './nav'
 import styled from 'styled-components'
 
 import SunIcon from '../images/sunpng.png'
 import MoonIcon from '../images/moonpng.png'
-import StarIcon from '../images/starpng.png'
 
 const App = () => {
-    const [theme] = useState(lightTheme)
+    const [theme, setTheme] = useState(lightTheme)
 
     const toggleTheme = () => {    
-        if (theme === darkTheme || starTheme) {
-            return lightTheme
-        } else if (theme === lightTheme || starTheme ) {
-            return darkTheme
+        if (theme === lightTheme) {
+            setTheme(darkTheme)
         } else {
-            return starTheme
+            setTheme(lightTheme)
         }
     }
     
     return (
-        <ThemeProvider theme={({theme})}>
+        <ThemeProvider theme={theme === lightTheme ? lightTheme : darkTheme}>
             <>
                 <GlobalStyles />
                <>
-                    <ModeButton theme={lightTheme} onClick={toggleTheme}>
+                    <ModeButton onClick={toggleTheme}>
                         <img src={SunIcon} alt="Sun icon for light mode" />
                     </ModeButton>
-                    <ModeButton theme={darkTheme} onClick={toggleTheme}>
+                    <ModeButton onClick={toggleTheme}>
                         <img src={MoonIcon} alt="Moon icon for dark mode" />
                     </ModeButton>
-                    <ModeButton theme={starTheme} onClick={toggleTheme}>
-                        <img src={StarIcon} alt="Star icon for star mode" />
-                    </ModeButton>
+                    
                 </>
                 <Nav />
                 <div>
@@ -51,6 +46,7 @@ const App = () => {
         </ThemeProvider>
     )
 }
+
 
 export default App
 
