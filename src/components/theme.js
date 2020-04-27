@@ -5,13 +5,13 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  body: '#2B2220',
+  body: '#110B01',
   text: '#EFFFFA',
   hover: '#ff0dbf',
 }
 
 export const starTheme = {
-  body: '#1A0231',
+  body: '#0B0111',
   text: '#EFFFFA',
   hover: '#ff0dbf',
 }
