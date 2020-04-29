@@ -13,5 +13,5 @@ export const darkTheme = {
 export const starTheme = {
   body: '#0B0111',
   text: '#EFFFFA',
-  hover: '#ff0dbf',
+  hover: '#ff0dbf'
 }
