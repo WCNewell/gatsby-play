@@ -1,8 +1,9 @@
 import React, { useState }from 'react'
 import { ThemeProvider } from 'styled-components'
-import lightTheme from ;
+import { GlobalStyles } from './global'
+import { lightTheme, darkTheme, starTheme } from './theme'
 import Nav from './nav'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
 // import SunIcon from '../images/sunpng.png'
 // import MoonIcon from '../images/moonpng.png'
@@ -36,8 +37,8 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <>
-               <>
-                    
+               <GlobalStyles />
+               <> 
                     <SunIcon onClick={toggleLightTheme} alt='sun icon for light theme' />
                     <MoonIcon onClick={toggleDarkTheme} alt='moon icon for dark theme' />
                     <StarsIcon onClick={toggleStarTheme} alt='stars icon for star theme'/>
@@ -60,18 +61,18 @@ const App = () => {
 
 export default App
 
-const ModeButton = styled.div`
-    display: flex;
-    flex-flow: row norwap;
-    justify-content: flex-start;
-    align-items: center;
-    padding-bottom: 10px;
-    fill: gold;
-    width: 50px;
-    height: 50px;
+// const ModeButton = styled.div`
+//     display: flex;
+//     flex-flow: row norwap;
+//     justify-content: flex-start;
+//     align-items: center;
+//     padding-bottom: 10px;
+//     fill: gold;
+//     width: 50px;
+//     height: 50px;
 
-    &:first-of-type {
-            margin-right: 10px;
-    }
+//     &:first-of-type {
+//             margin-right: 10px;
+//     }
     
-`
+// `
