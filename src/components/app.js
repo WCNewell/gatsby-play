@@ -2,16 +2,14 @@ import React, { useState }from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './global'
 import { lightTheme, darkTheme, starTheme } from './theme'
+import styled from 'styled-components'
+import './styles.css'
+
 import Nav from './nav'
-// import styled from 'styled-components'
 
-// import SunIcon from '../images/sunpng.png'
-// import MoonIcon from '../images/moonpng.png'
-// import StarIcon from '../images/starpng.png'
-
-import SunIcon from '../assets/sun-svg.svg'
-import MoonIcon from '../assets/moon-svg.svg'
-import StarsIcon from '../assets/stars-svg.svg'
+import SunIcon from '../assets/sun.inline.svg'
+import MoonIcon from '../assets/moon.inline.svg'
+import StarsIcon from '../assets/stars.inline.svg'
 
 const App = () => {
     const [theme, setTheme] = useState(lightTheme)
@@ -39,9 +37,20 @@ const App = () => {
             <>
                <GlobalStyles />
                <> 
-                    <SunIcon onClick={toggleLightTheme} alt='sun icon for light theme' />
-                    <MoonIcon onClick={toggleDarkTheme} alt='moon icon for dark theme' />
-                    <StarsIcon onClick={toggleStarTheme} alt='stars icon for star theme'/>
+                    <ModeIcons>
+                        <SunIcon    className='mode-icon'
+                                    onClick={toggleLightTheme}
+                                    alt='sun icon for light mode'
+                        />
+                        <MoonIcon   className='mode-icon' 
+                                    onClick={toggleDarkTheme}
+                                    alt='moon icon for dark mode'
+                        />
+                        <StarsIcon  className='mode-icon'
+                                    onClick={toggleStarTheme}
+                                    alt='stars icon for star mode'
+                        />
+                    </ModeIcons>
                 </>
                 <Nav />
                 <div>
@@ -58,21 +67,10 @@ const App = () => {
     )
 }
 
-
 export default App
 
-// const ModeButton = styled.div`
-//     display: flex;
-//     flex-flow: row norwap;
-//     justify-content: flex-start;
-//     align-items: center;
-//     padding-bottom: 10px;
-//     fill: gold;
-//     width: 50px;
-//     height: 50px;
-
-//     &:first-of-type {
-//             margin-right: 10px;
-//     }
+const ModeIcons = styled.div`
+    display: flex;
+    justify-content: center;
     
-// `
+`
