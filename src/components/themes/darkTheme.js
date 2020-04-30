@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 // The transition property below allows us to make this change a little more smoothly than working with keyframe animations
 
-export const GlobalStyles = createGlobalStyle`
+const darkTheme = createGlobalStyle`
   html, body {
     margin: 0;
     padding: 0;
@@ -14,8 +14,8 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
+    background: #110B01;
+    color: #EFFFFA;
     transition: all 0.25s linear;
     height: 100vh;
     text-rendering: optimizeLegibility;
@@ -38,7 +38,9 @@ export const GlobalStyles = createGlobalStyle`
     display: block;
   }
   a {
-    color: ${({ theme }) => theme.primaryHover};
+    color:'#FF0DBF;
     text-decoration: none;
   }
 `
+export default darkTheme
+

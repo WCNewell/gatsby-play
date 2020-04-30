@@ -1,7 +1,8 @@
-import React, { useState }from 'react'
+import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from './global'
-import { lightTheme, darkTheme, starTheme } from './theme'
+import lightTheme from './themes/lightTheme'
+import darkTheme from './themes/darkTheme'
+import starTheme from './themes/starTheme'
 import styled from 'styled-components'
 import './styles.css'
 
@@ -35,7 +36,6 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <>
-               <GlobalStyles />
                <> 
                     <ModeIcons>
                         <SunIcon    className='mode-icon'
