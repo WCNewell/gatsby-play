@@ -32,6 +32,8 @@ const App = () => {
         }
     }
 
+    // function if theme === starTheme then use Layout and Sass
+
     return (
         <ThemeProvider theme={theme}>
             <>
