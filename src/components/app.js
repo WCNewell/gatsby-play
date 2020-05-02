@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
-import lightTheme from './themes/lightTheme'
-import darkTheme from './themes/darkTheme'
-import starTheme from './themes/starTheme'
+import { GlobalStyles } from './styles/global'
+import { lightTheme, darkTheme, starTheme } from './theme'
 import styled from 'styled-components'
-import './styles.css'
+import '../components/styles/styles.css'
 
 import Nav from './nav'
 
@@ -36,7 +35,7 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <>
-               <> 
+               <GlobalStyles /> 
                     <ModeIcons>
                         <SunIcon    className='mode-icon'
                                     onClick={toggleLightTheme}
@@ -51,10 +50,9 @@ const App = () => {
                                     alt='stars icon for star mode'
                         />
                     </ModeIcons>
-                </>
                 <Nav />
                 <div>
-                    <h1>Hello. React hook demo for burger menu ala mode</h1>
+                    <h1>Hello. React hook demo for burger menu ala mode with Styled-Components and Sass.</h1>
                 </div>
                 <footer>
                     © {new Date().getFullYear()}, Built with
