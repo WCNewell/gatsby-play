@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import '../components/styles/styles.css'
 
 import Nav from './nav'
-// import Layout from './styles/layout'
+import Layout from './styles/layout'
 import StarLayout from './styles/starLayout'
 
 import SunIcon from '../assets/sun.inline.svg'
@@ -35,14 +35,14 @@ const App = () => {
         }
     }
 
-    // function if theme === starTheme then inject starLayout
+    // function if theme === !lightTheme then inject starLayout
 
-    // const isStarTheme = () => {
-    //     if (theme === starTheme) {
-    //         return <StarLayout />
-    //     }
-    //     return <Layout />
-    // }
+    const isStarTheme = () => {
+        if (theme === starTheme) {
+                setTheme(<StarLayout />)
+        }
+        return <Layout />
+    }
     
     // const toggleStarLayout = () => {
     //     if (theme === !lightTheme || !darkTheme) {
@@ -61,9 +61,9 @@ const App = () => {
         <ThemeProvider theme={theme}>
             <>
                <GlobalStyles />
-               <StarLayout /> 
+               <StarLayout />
+               <Layout />
                     <ModeIcons>
-                    
                         <SunIcon    className='mode-icon'
                                     onClick={toggleLightTheme}
                                     alt='sun icon for light mode'
@@ -85,7 +85,6 @@ const App = () => {
                     © {new Date().getFullYear()}, Built with
                     {` `}
                     <a href="https://www.gatsbyjs.org">Gatsby</a>
-                    <h5>Icons from iconfinder.com</h5>
                 </footer>
             </>  
         </ThemeProvider>
