@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import '../components/styles/styles.css'
 
 import Nav from './nav'
+// import Layout from './styles/layout'
+import StarLayout from './styles/starLayout'
 
 import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'
@@ -13,7 +15,8 @@ import StarsIcon from '../assets/stars.inline.svg'
 
 const App = () => {
     const [theme, setTheme] = useState(lightTheme)
- 
+    // const [layout, setStarLayout] = useState(starTheme)
+    
     const toggleLightTheme = () => {
         if (theme === darkTheme || starTheme) {
             setTheme(lightTheme)
@@ -32,13 +35,35 @@ const App = () => {
         }
     }
 
-    // function if theme === starTheme then use Layout and Sass
+    // function if theme === starTheme then inject starLayout
+
+    // const isStarTheme = () => {
+    //     if (theme === starTheme) {
+    //         return <StarLayout />
+    //     }
+    //     return <Layout />
+    // }
+    
+    // const toggleStarLayout = () => {
+    //     if (theme === !lightTheme || !darkTheme) {
+    //         return <StarLayout />
+    //     }
+    //     return <StarLayout />
+    // }
+    
+    // const toggleStarLayout = () => {
+    //     if (theme === starTheme) {
+    //         setStarLayout(StarLayout)
+    //     }
+    // }
 
     return (
         <ThemeProvider theme={theme}>
             <>
-               <GlobalStyles /> 
+               <GlobalStyles />
+               <StarLayout /> 
                     <ModeIcons>
+                    
                         <SunIcon    className='mode-icon'
                                     onClick={toggleLightTheme}
                                     alt='sun icon for light mode'
