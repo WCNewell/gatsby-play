@@ -3,9 +3,9 @@
 $font-stack: Orbitron, sans-serif
 
 @function multiple-box-shadow ($n) 
-  $value: '#{random(2000)}px #{random(2000)}px #FFF'
+  $value: '#{random(2000)}px #{random(2000)}px #fff'
   @for $i from 2 through $n
-    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF'
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #fff'
 
   @return unquote($value)
 
@@ -15,7 +15,8 @@ $shadows-big:    multiple-box-shadow(100)
 
 html
   height: 100%
-  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%)
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%)
+  color: #330066
   overflow: hidden
     
 .stars
@@ -66,29 +67,15 @@ html
     background: transparent
     box-shadow: $shadows-big
 
-.title
-  position: absolute
-  top: 20%
-  left: 0
-  right: 0
-  
-  color: #FFF
-  text-align: center
-  font-weight: 300
-  font-size: 30px
-  font-family: $font-stack
-  letter-spacing: 5px
-  
-  margin-top: -60px
-  padding-left: 10px
-  
-  .titlechild
-    background: -webkit-linear-gradient(white, #38495a)
-    -webkit-background-clip: text
-    -webkit-text-fill-color: transparent
-
 @keyframes animStar
   from	
     transform: translateY(0px)
   to		
     transform: translateY(-2000px)
+
+.mode-buutton
+  fill: #ffff00
+    height: 40px
+    width: 40px
+    margin-left: 3em
+    margin-right: 3em
