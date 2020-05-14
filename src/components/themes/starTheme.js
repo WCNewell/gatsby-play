@@ -1,7 +1,7 @@
 import React from 'react'
-import './styles.sass'
+import '../styles/starStyles.sass'
 
-const starLayout = () => {
+const starTheme = () => {
 
     return (
         <>
@@ -12,4 +12,4 @@ const starLayout = () => {
     )
 }
 
-export default starLayout
+export default starTheme

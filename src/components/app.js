@@ -30,9 +30,8 @@ const App = () => {
     }
 
     return (
-        <ThemeProvider theme={theme}>
+        <Provider>
             <>
-               <GlobalStyles />
                     <ModeIcons>
                         <SunIcon    className='mode-icon'
                                     onClick={toggleLightTheme}
@@ -57,7 +56,7 @@ const App = () => {
                     <a href="https://www.gatsbyjs.org">Gatsby</a>
                 </footer>
             </>  
-        </ThemeProvider>
+        </Provider>
     )
 }
 
