@@ -1,14 +1,8 @@
 import React, { useState } from 'react'
+import { ThemeProvider } from '../provider'
 import styled from 'styled-components'
-import '../components/styles/styles.css'
 
-import Nav from './nav'
-
-import SunIcon from '../assets/sun.inline.svg'
-import MoonIcon from '../assets/moon.inline.svg'
-import StarsIcon from '../assets/stars.inline.svg'
-
-const App = () => {
+const Toggle = () => {
     const [theme, setTheme] = useState(lightTheme)
     
     const toggleLightTheme = () => {
@@ -30,7 +24,7 @@ const App = () => {
     }
 
     return (
-        <Provider>
+        <ThemeProvider.Consumer>
             <>
                     <ModeIcons>
                         <SunIcon    className='mode-icon'
@@ -55,15 +49,13 @@ const App = () => {
                     {` `}
                     <a href="https://www.gatsbyjs.org">Gatsby</a>
                 </footer>
-            </>  
-        </Provider>
+            </>
+        </ThemeProvider.Consumer>
     )
 }
 
-export default App
+export default Toggle
 
 const ModeIcons = styled.div`
     display: flex;
     justify-content: center;
-    
-`
