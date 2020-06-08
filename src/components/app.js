@@ -37,12 +37,12 @@ const App = () => {
 
     // function if theme === !lightTheme then inject starLayout
 
-    const isStarTheme = () => {
-        if (theme === starTheme) {
-                setTheme(<StarLayout />)
-        }
-        return <Layout />
-    }
+    // const isStarTheme = () => {
+    //     if (theme === starTheme) {
+    //             setTheme(<StarLayout />)
+    //     }
+    //     return <Layout />
+    // }
     
     // const toggleStarLayout = () => {
     //     if (theme === !lightTheme || !darkTheme) {
