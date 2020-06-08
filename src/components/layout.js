@@ -1,11 +1,12 @@
 import React from 'react'
+import { ThemeContext } from '../../provider'
 import Nav from './nav'
 import Toggle from './toggle'
 
 const Layout = () => {
     
     return (
-        <ThemeProvider.Consumer>
+        <ThemeContext.Consumer>
             <>
                 <Nav />
                 <Toggle />
@@ -18,7 +19,7 @@ const Layout = () => {
                     <a href="https://www.gatsbyjs.org">Gatsby</a>
                 </footer>
             </>  
-        </ThemeProvider.Consumer>
+        </ThemeContext.Consumer>
     )
 }
 

@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
-import { ThemeProvider } from '../provider'
+import { ThemeContext } from '../../provider'
 import styled from 'styled-components'
+
+import lightTheme from './themes/lightTheme'
+import darkTheme from './themes/darkTheme'
+import starTheme from './themes/starTheme'
+
+import SunIcon from '../assets/sun.inline.svg'
+import MoonIcon from '../assets/moon.inline.svg'
+import StarsIcon from '../assets/stars.inline.svg'
 
 const Toggle = () => {
     const [theme, setTheme] = useState(lightTheme)
@@ -24,33 +32,24 @@ const Toggle = () => {
     }
 
     return (
-        <ThemeProvider.Consumer>
+        <ThemeContext.Consumer>
             <>
-                    <ModeIcons>
-                        <SunIcon    className='mode-icon'
-                                    onClick={toggleLightTheme}
-                                    alt='sun icon for light mode'
-                        />
-                        <MoonIcon   className='mode-icon' 
-                                    onClick={toggleDarkTheme}
-                                    alt='moon icon for dark mode'
-                        />
-                        <StarsIcon  className='mode-icon'
-                                    onClick={toggleStarTheme}
-                                    alt='stars icon for star mode'
-                        />
-                    </ModeIcons>
-                <Nav />
-                <div>
-                    <h1>Hello. React hook demo for burger menu ala mode with Styled-Components and Sass.</h1>
-                </div>
-                <footer>
-                    © {new Date().getFullYear()}, Built with
-                    {` `}
-                    <a href="https://www.gatsbyjs.org">Gatsby</a>
-                </footer>
+                <ModeIcons>
+                    <SunIcon    className='mode-icon'
+                                onClick={toggleLightTheme}
+                                alt='sun icon for light mode'
+                    />
+                    <MoonIcon   className='mode-icon' 
+                                onClick={toggleDarkTheme}
+                                alt='moon icon for dark mode'
+                    />
+                    <StarsIcon  className='mode-icon'
+                                onClick={toggleStarTheme}
+                                alt='stars icon for star mode'
+                    />
+                </ModeIcons>
             </>
-        </ThemeProvider.Consumer>
+        </ThemeContext.Consumer>
     )
 }
 
@@ -59,3 +58,4 @@ export default Toggle
 const ModeIcons = styled.div`
     display: flex;
     justify-content: center;
+`

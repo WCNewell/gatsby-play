@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/starStyles.sass'
+import '../styles/starStyles.scss'
 
 const starTheme = () => {
 
