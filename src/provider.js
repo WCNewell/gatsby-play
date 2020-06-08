@@ -3,12 +3,12 @@ import React, { useState } from 'react'
 export const ThemeContext = React.createContext()
 
 const Provider = props => {
-    const [isDark, setTheme] = useState(false)
+    const [isLight, setTheme] = useState(false)
 
     return (
         <ThemeContext.Provider value={{
-            isDark,
-            changeTheme: () => setTheme(!isDark)
+            isLight,
+            changeTheme: () => setTheme(!isLight)
         }}>
             {props.children}
         </ThemeContext.Provider>
