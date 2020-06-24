@@ -1,24 +1,23 @@
 import React from 'react'
 import { ThemeContext } from '../../provider'
-import Nav from './nav'
 import Toggle from './toggle'
+import Nav from './nav'
 
 const Layout = () => {
     
     return (
         <ThemeContext.Consumer>
             <>
-                <Nav />
-                <Toggle />
-                <div>
-                    <h1>Hello. React hook demo for burger menu ala mode with Styled-Components and Sass.</h1>
-                </div>
+                <header>
+                    <Toggle />
+                    <Nav />
+                </header>
                 <footer>
                     © {new Date().getFullYear()}, Built with
                     {` `}
                     <a href="https://www.gatsbyjs.org">Gatsby</a>
                 </footer>
-            </>  
+            </>
         </ThemeContext.Consumer>
     )
 }

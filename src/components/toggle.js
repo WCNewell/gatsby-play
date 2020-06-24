@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { ThemeContext } from '../../provider'
 import styled from 'styled-components'
 
 import lightTheme from './themes/lightTheme'
@@ -32,24 +31,22 @@ const Toggle = () => {
     }
 
     return (
-        <ThemeContext.Consumer>
-            <>
-                <ModeIcons>
-                    <SunIcon    className='mode-icon'
-                                onClick={toggleLightTheme}
-                                alt='sun icon for light mode'
-                    />
-                    <MoonIcon   className='mode-icon' 
-                                onClick={toggleDarkTheme}
-                                alt='moon icon for dark mode'
-                    />
-                    <StarsIcon  className='mode-icon'
-                                onClick={toggleStarTheme}
-                                alt='stars icon for star mode'
-                    />
-                </ModeIcons>
-            </>
-        </ThemeContext.Consumer>
+        <>
+            <ModeIcons>
+                <SunIcon    className='mode-icon'
+                            onClick={toggleLightTheme}
+                            alt='sun icon for light mode'
+                />
+                <MoonIcon   className='mode-icon' 
+                            onClick={toggleDarkTheme}
+                            alt='moon icon for dark mode'
+                />
+                <StarsIcon  className='mode-icon'
+                            onClick={toggleStarTheme}
+                            alt='stars icon for star mode'
+                />
+            </ModeIcons>
+        </>
     )
 }
 
