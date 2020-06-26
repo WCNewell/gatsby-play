@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/lightStyles.scss'
+import '../../../public/styles/lightStyles.scss'
 
 const lightTheme = () => {
 

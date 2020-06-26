@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/darkStyles.scss'
+import '../../../public/styles/darkStyles.scss'
 
 const darkTheme = () => {
 

@@ -6,6 +6,10 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,10 +17,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `limelight`,
+          `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+        ],
+        display: 'swap'
+      }
+    },
+    
     {
       resolve: `gatsby-plugin-react-svg`,
       options: {
