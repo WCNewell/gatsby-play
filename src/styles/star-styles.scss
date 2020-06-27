@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
-$font-stack: Orbitron, sans-serif;
+// $font-stack: Orbitron, sans-serif;
 
 @function multiple-box-shadow ($n) {
     $value: '#{random(2000)}px #{random(2000)}px #fff';
@@ -82,12 +82,4 @@ html {
     to {		
         transform: translateY(-2000px);
     }
-}
-
-.mode-button {
-    fill: #ffff00;
-    height: 40px;
-    width: 40px;
-    margin-left: 3em;
-    margin-right: 3em;
 }
