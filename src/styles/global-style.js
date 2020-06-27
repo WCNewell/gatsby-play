@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: inherit;
     }
     body {
+        font-family: Limelight, sans-serif;
         line-height: 1.5;
         letter-spacing: 0;
     }
