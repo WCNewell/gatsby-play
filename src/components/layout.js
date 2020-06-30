@@ -6,7 +6,7 @@ import { lightTheme, darkTheme } from '../styles/themes'
 import Toggle from './toggle'
 import Nav from './nav'
 
-const App = () => {
+const Layout = () => {
     const [theme, themeToggler, mountedComponent] = useDarkMode()
     
     const themeMode = theme === 'light' ? lightTheme : darkTheme
@@ -34,4 +34,4 @@ const App = () => {
     )
 }
 
-export default App
+export default Layout

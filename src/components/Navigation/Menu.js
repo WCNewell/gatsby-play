@@ -18,10 +18,6 @@ const Menu = ({ open, ...props }) => {
         <span aria-hidden="true"></span>
         about
         </Link>
-      <Link to="/contact" tabIndex={tabIndex}>
-        <span aria-hidden="true"></span>
-        contact
-        </Link>
     </StyledMenu>
   )
 }
