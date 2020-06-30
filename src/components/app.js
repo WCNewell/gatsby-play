@@ -1,18 +1,19 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { useStarMode } from './useStarMode'
+import { useDarkMode } from './useDarkMode'
 import { GlobalStyles } from '../styles/global-styles'
-import { lightTheme, darkTheme, starTheme } from '../styles/themes'
+import { lightTheme, darkTheme } from '../styles/themes'
 import Toggle from './toggle'
 import Nav from './nav'
 
 const App = () => {
-    const [theme, themeToggler] = useStarMode()
+    const [theme, themeToggler, mountedComponent] = useDarkMode()
     
     const themeMode = theme === 'light' ? lightTheme : darkTheme
     // ^^ Ugh, always with the ternary, need to still figure out how to get triple conditions
 
-   
+    if(!mountedComponent) return <div />
+    
     return (
         
         <ThemeProvider theme={themeMode}>
