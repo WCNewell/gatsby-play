@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from './styles/global'
-import { lightTheme, darkTheme, starTheme } from './theme'
+import { GlobalStyles } from '../styles/global'
+import { lightTheme, darkTheme, starTheme } from '../styles/theme'
 import styled from 'styled-components'
-import '../components/styles/styles.css'
+import '../styles/styles.css'
 
 import Nav from './nav'
-import Layout from './styles/layout'
-import StarLayout from './styles/starLayout'
+// import BaseLayout from '../styles/base-layout'
+// import StarLayout from '../styles/star-layout'
 
 import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'
 import StarsIcon from '../assets/stars.inline.svg'
 
-const App = () => {
+const App = ({ children }) => {
     const [theme, setTheme] = useState(lightTheme)
     // const [layout, setStarLayout] = useState(starTheme)
     
@@ -60,27 +60,27 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <>
-               <GlobalStyles />
-               <StarLayout />
-               <Layout />
-                    <ModeIcons>
-                        <SunIcon    className='mode-icon'
-                                    onClick={toggleLightTheme}
-                                    alt='sun icon for light mode'
-                        />
-                        <MoonIcon   className='mode-icon' 
-                                    onClick={toggleDarkTheme}
-                                    alt='moon icon for dark mode'
-                        />
-                        <StarsIcon  className='mode-icon'
-                                    onClick={toggleStarTheme}
-                                    alt='stars icon for star mode'
-                        />
-                    </ModeIcons>
-                <Nav />
-                <div>
-                    <h1>Hello. React hook demo for burger menu ala mode with Styled-Components and Sass.</h1>
-                </div>
+                <GlobalStyles />
+                <header>
+                    <div>
+                        <ModeIcons>
+                            <SunIcon    className='mode-icon'
+                                        onClick={toggleLightTheme}
+                                        alt='sun icon for light mode'
+                            />
+                            <MoonIcon   className='mode-icon' 
+                                        onClick={toggleDarkTheme}
+                                        alt='moon icon for dark mode'
+                            />
+                            <StarsIcon  className='mode-icon'
+                                        onClick={toggleStarTheme}
+                                        alt='stars icon for star mode'
+                            />
+                        </ModeIcons>
+                    </div>
+                    <Nav />
+                </header>
+                    <main>{children}</main>
                 <footer>
                     © {new Date().getFullYear()}, Built with
                     {` `}
