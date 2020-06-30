@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-
-import lightTheme from './themes/lightTheme'
-import darkTheme from './themes/darkTheme'
-import starTheme from './themes/starTheme'
+import { lightTheme, darkTheme, starTheme } from '../styles/themes'
 
 import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'

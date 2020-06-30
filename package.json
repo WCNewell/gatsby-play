@@ -24,8 +24,7 @@
     "react-dom": "^16.13.1",
     "react-focus-lock": "^2.2.1",
     "react-helmet": "^5.2.1",
-    "styled-components": "^5.0.1",
-    "styled-reset": "^4.1.6"
+    "styled-components": "^5.0.1"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
