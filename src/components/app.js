@@ -82,7 +82,7 @@ const App = ({ children }) => {
                 </header>
                     <main>{children}</main>
                 <footer>
-                    © {new Date().getFullYear()}, Built with
+                    © {new Date().getFullYear()} Clark Newell, Built with
                     {` `}
                     <a href="https://www.gatsbyjs.org">Gatsby</a>
                 </footer>
