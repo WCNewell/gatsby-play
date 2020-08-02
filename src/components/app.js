@@ -6,16 +6,21 @@ import styled from 'styled-components'
 import '../styles/styles.css'
 
 import Nav from './nav'
-// import BaseLayout from '../styles/base-layout'
-// import StarLayout from '../styles/star-layout'
+import StarLayout from '../styles/star-layout'
+import BaseLayout from '../styles/base-layout'
+
 
 import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'
 import StarsIcon from '../assets/stars.inline.svg'
 
+const ModeIcons = styled.div`
+    display: flex;
+    justify-content: center;    
+`
+
 const App = ({ children }) => {
     const [theme, setTheme] = useState(lightTheme)
-    // const [layout, setStarLayout] = useState(starTheme)
     
     const toggleLightTheme = () => {
         if (theme === darkTheme || starTheme) {
@@ -35,31 +40,10 @@ const App = ({ children }) => {
         }
     }
 
-    // function if theme === !lightTheme then inject starLayout
-
-    // const isStarTheme = () => {
-    //     if (theme === starTheme) {
-    //             setTheme(<StarLayout />)
-    //     }
-    //     return <Layout />
-    // }
-    
-    // const toggleStarLayout = () => {
-    //     if (theme === !lightTheme || !darkTheme) {
-    //         return <StarLayout />
-    //     }
-    //     return <StarLayout />
-    // }
-    
-    // const toggleStarLayout = () => {
-    //     if (theme === starTheme) {
-    //         setStarLayout(StarLayout)
-    //     }
-    // }
-
     return (
         <ThemeProvider theme={theme}>
             <>
+                {theme === starTheme ? <StarLayout/> : <BaseLayout/>}
                 <GlobalStyles />
                 <header>
                     <div>
@@ -92,9 +76,3 @@ const App = ({ children }) => {
 }
 
 export default App
-
-const ModeIcons = styled.div`
-    display: flex;
-    justify-content: center;
-    
-`
