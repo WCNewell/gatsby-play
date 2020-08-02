@@ -10,11 +10,11 @@ const Menu = ({ open, ...props }) => {
 
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-      <Link to="/" tabIndex={tabIndex}>
+      <Link to="/" tabIndex={tabIndex} onClick={isHidden === true}>
         <span aria-hidden="true"></span>
         home
       </Link>
-      <Link to="/about" tabIndex={tabIndex}>
+      <Link to="/about" tabIndex={tabIndex} onClick={isHidden === true}>
         <span aria-hidden="true"></span>
         about
         </Link>
