@@ -49,6 +49,7 @@ export const StyledMenu = styled.nav`
     font-weight: bold;
     letter-spacing: 0.5rem;
     color: ${({ theme }) => theme.primaryDark};
+    outline: none;
     text-decoration: none;
     transition: color 0.3s linear;
 

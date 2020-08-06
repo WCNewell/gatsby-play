@@ -7,17 +7,12 @@ import '../styles/styles.css'
 
 import Nav from './nav'
 import StarLayout from '../styles/star-layout'
-import BaseLayout from '../styles/base-layout'
+// import BaseLayout from '../styles/base-layout'
 
 
 import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'
 import StarsIcon from '../assets/stars.inline.svg'
-
-const ModeIcons = styled.div`
-    display: flex;
-    justify-content: center;    
-`
 
 const App = ({ children }) => {
     const [theme, setTheme] = useState(lightTheme)
@@ -43,7 +38,7 @@ const App = ({ children }) => {
     return (
         <ThemeProvider theme={theme}>
             <>
-                {theme === starTheme ? <StarLayout/> : <BaseLayout/>}
+                {theme === starTheme ? <StarLayout/> : null}
                 <GlobalStyles />
                 <header>
                     <div>
@@ -64,7 +59,9 @@ const App = ({ children }) => {
                     </div>
                     <Nav />
                 </header>
-                    <main>{children}</main>
+                    <main>
+                        {children}
+                    </main>
                 <footer>
                     © {new Date().getFullYear()} Clark Newell, Built with
                     {` `}
@@ -76,3 +73,8 @@ const App = ({ children }) => {
 }
 
 export default App
+
+const ModeIcons = styled.div`
+    display: flex;
+    justify-content: center;    
+`
