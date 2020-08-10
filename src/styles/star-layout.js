@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.scss'
+import './star-styles.scss'
 
 const starLayout = () => {
 
