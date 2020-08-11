@@ -6,8 +6,8 @@ import styled from 'styled-components'
 import '../components/styles/styles.css'
 
 import Nav from './nav'
-import Layout from './styles/layout'
-import StarLayout from './styles/starLayout'
+// import Layout from './styles/layout'
+// import StarLayout from './styles/starLayout'
 
 import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'
@@ -35,34 +35,12 @@ const App = () => {
         }
     }
 
-    // function if theme === !lightTheme then inject starLayout
-
-    // const isStarTheme = () => {
-    //     if (theme === starTheme) {
-    //             setTheme(<StarLayout />)
-    //     }
-    //     return <Layout />
-    // }
     
-    // const toggleStarLayout = () => {
-    //     if (theme === !lightTheme || !darkTheme) {
-    //         return <StarLayout />
-    //     }
-    //     return <StarLayout />
-    // }
-    
-    // const toggleStarLayout = () => {
-    //     if (theme === starTheme) {
-    //         setStarLayout(StarLayout)
-    //     }
-    // }
 
     return (
         <ThemeProvider theme={theme}>
             <>
                <GlobalStyles />
-               <StarLayout />
-               <Layout />
                     <ModeIcons>
                         <SunIcon    className='mode-icon'
                                     onClick={toggleLightTheme}
