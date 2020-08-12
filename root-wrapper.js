@@ -1,8 +1,8 @@
 import React from 'react'
-import { Provider } from './src/components/provider'
+import App from './src/components/app'
 
 export const wrapRootElement = ({ element }) => (
     <>
-        <Provider>{element}</Provider>
+        <App>{element}</App>
     </>
 )
