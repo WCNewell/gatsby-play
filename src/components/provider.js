@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { lightTheme, darkTheme } from '../styles/theme'
+import { lightTheme, darkTheme, starTheme } from '../styles/theme'
 import useDarkMode from 'use-dark-mode'
-import useStarTheme from '../hooks'
+import StarLayout from '../styles/star-layout'
 import styled from 'styled-components'
 import '../styles/styles.scss'
 import Nav from './nav'
@@ -15,7 +15,6 @@ export const Context = React.createContext()
 export const Provider = ({ children }) => {
     const [theme, setTheme] = useState(lightTheme)
     const darkMode = useDarkMode(false)
-    const starTheme = useStarTheme(false)
     
     const toggleLightTheme = () => {
         if (theme === darkTheme || starTheme) {
@@ -38,6 +37,7 @@ export const Provider = ({ children }) => {
     return (
         <Context.Provider>
             <>
+                {theme === starTheme ? <StarLayout/> : null}
                 <header>
                     <div>
                         <ModeIcons>
