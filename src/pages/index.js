@@ -5,7 +5,7 @@ const IndexPage = () => (
     <>  
     <SEO title='Home' />
       <div>
-        <h1>Hello. React hook demo for burger menu ala mode with Styled-Components and Sassy CSS.</h1>
+        <h1>Hello. React hook demo for burger menu ala triple mode with Styled-Components and Sassy CSS.</h1>
       </div>
     </>
 )
