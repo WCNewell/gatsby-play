@@ -1,16 +1,13 @@
-import React, { useState }from 'react'
+import React from 'react'
+// import { lightTheme, starTheme } from '../styles/theme'
+
 
 export const StarContext = React.createContext()
 
 export const Provider = ({ children }) => {
-    const [theme, setTheme] = useState()
 
     return (
-        <StarContext.Provider
-            value={{
-                name: theme,
-                updateTheme: setTheme,
-            }}>
+        <StarContext.Provider value='theme'>
             {children}
         </StarContext.Provider>
     )
