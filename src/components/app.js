@@ -4,18 +4,20 @@ import Footer from './footer'
 
 import '../styles/styles.scss'
 
-const App = ({ children }) => {
+const App = () => {
 
     return (
+       
         <>
            
             <Header />
                 <main>
-                    {children}
+                    
                 </main>
             <Footer />
            
         </> 
+        
     )
 }
 

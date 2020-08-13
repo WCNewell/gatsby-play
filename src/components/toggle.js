@@ -2,6 +2,8 @@ import React, { useState }from 'react'
 import styled from 'styled-components'
 import { lightTheme, darkTheme, starTheme } from '../styles/theme'
 import useDarkMode from 'use-dark-mode'
+import { StarContext } from './star-mode'
+import StarLayout from '../styles/star-layout'
 
 import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'
@@ -30,6 +32,8 @@ const Toggle = () => {
     }
 
     return (
+        <StarContext.Consumer>
+        {theme === starTheme ? <StarLayout /> : null}
         <>
             <div>
                 <ModeIcons>
@@ -57,6 +61,7 @@ const Toggle = () => {
                 </ModeIcons>
             </div>
         </>
+        </StarContext.Consumer>
     )
 } 
 
