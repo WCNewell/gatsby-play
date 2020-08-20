@@ -1,3 +1,8 @@
-import { wrapRootElement as wrap } from './root-wrapper'
+import React from 'react'
+import Layout from './src/components/layout'
 
-export const wrapRootElement = wrap
+export const wrapPageElement = ({ element }) => (
+    <>
+        <Layout>{element}</Layout>
+    </>
+)

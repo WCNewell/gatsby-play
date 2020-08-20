@@ -1,20 +1,21 @@
-import React, { useState }from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { lightTheme, darkTheme, starTheme } from '../styles/theme'
 import useDarkMode from 'use-dark-mode'
-import { StarContext } from './star-mode'
-import StarLayout from '../styles/star-layout'
+import { StarContext }from './star-context'
 import Header from './header'
 import Footer from './footer'
-
 import '../styles/styles.scss'
+
 import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'
 import StarsIcon from '../assets/stars.inline.svg'
 
-const App = ({ children }) => {
+
+const Layout = ({ children }) => {
     const [theme, setTheme] = useState(lightTheme)
     const darkMode = useDarkMode(false)
+
     
     const toggleLightTheme = () => {
         if (theme === darkTheme || starTheme) {
@@ -35,10 +36,8 @@ const App = ({ children }) => {
     }
 
     return (
-        <StarContext.Consumer>
-            {value => (
+        <StarContext.Provider value={starTheme}>
                 <>
-                    {theme === starTheme ? <StarLayout /> : null}
                     <div>
                         <Header />
                         <ModeIcons>
@@ -70,12 +69,11 @@ const App = ({ children }) => {
                     </div>
                     <Footer />
                 </>
-            )}
-        </StarContext.Consumer>
+        </StarContext.Provider>
     )
 } 
 
-export default App
+export default Layout
 
 const ModeIcons = styled.div`
     display: flex;
