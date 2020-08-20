@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { lightTheme, darkTheme, starTheme } from '../styles/theme'
 import useDarkMode from 'use-dark-mode'
 import { StarContext }from './star-context'
+import StarLayout from '../styles/star-layout'
 import Header from './header'
 import Footer from './footer'
 import '../styles/styles.scss'
@@ -38,6 +39,7 @@ const Layout = ({ children }) => {
     return (
         <StarContext.Provider value={starTheme}>
                 <>
+                    {theme === starTheme ? <StarLayout /> : null}
                     <div>
                         <Header />
                         <ModeIcons>

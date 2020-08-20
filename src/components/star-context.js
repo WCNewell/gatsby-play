@@ -1,8 +1,7 @@
 import React from 'react'
-import StarLayout from '../styles/star-layout'
 import { starTheme } from '../styles/theme'
 
-const StarContext = React.createContext(<StarLayout />)
+const StarContext = React.createContext()
 
 const StarProvider = (props) => {
     return (
