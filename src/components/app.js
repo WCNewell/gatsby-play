@@ -14,20 +14,22 @@ import StarsIcon from '../assets/stars.inline.svg'
 export const StarContext = React.createContext()
 
 const initialState = {
-    starTheme: false
+    isStarTheme: false
 }
 
 const reducer = (state, action) => {
     switch (action.type) {
         case "StarMode":
+            // here I need to figure out how to know if starTheme is activated
+            
             return {
                 ...state,
-                starTheme: true
+                isStarTheme: true
             }
         case "LightDarkMode":
             return {
                 ...state,
-                starTheme: false
+                isStarTheme: false
             }
         default: 
             return state
@@ -61,7 +63,7 @@ const App = ({ children }) => {
     return (
         <StarContext.Provider value={{state, dispatch}}>
             <>
-                {state.starTheme ? <StarLayout /> : null}
+                {state.isStarTheme ? <StarLayout /> : null}
                 <div>
                     <Header />
                     <ModeIcons>

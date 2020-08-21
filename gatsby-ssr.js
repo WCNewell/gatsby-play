@@ -1,7 +1,7 @@
 import React from 'react'
 import App from './src/components/app'
 
-export const wrapPageElement = ({ element }) => (
+export const wrapRootElement = ({ element }) => (
     <>
         <App>{element}</App>
     </>
