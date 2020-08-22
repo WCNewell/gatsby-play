@@ -37,6 +37,7 @@ const reducer = (state, action) => {
 export const ThemeProvider = ({ children }) => {
     const [state, dispatch] = React.useReducer(reducer, initialState)
     const [theme, setTheme] = React.useState(lightTheme)
+    const darkMode = useDarkMode(false)
     
     const toggleLightTheme = () => {
         if (theme === darkTheme || starTheme) {
@@ -70,21 +71,21 @@ export const ThemeProvider = ({ children }) => {
                     <SunIcon    className='mode-icon'
                                 onClick={() => {
                                     toggleLightTheme()
-                                    useDarkMode.disable()
+                                    darkMode.disable()
                                 }}
                                 alt='sun icon for light mode'
                     />
                     <MoonIcon   className='mode-icon' 
                                 onClick={() => {
                                     toggleDarkTheme()
-                                    useDarkMode.enable()
+                                    darkMode.enable()
                                 }}
                                 alt='moon icon for dark mode'
                     />
                     <StarsIcon  className='mode-icon'
                                 onClick={() => {
                                     toggleStarTheme()
-                                    useDarkMode.enable()
+                                    darkMode.enable()
                                 }}
                                 alt='stars icon for star mode'
                     />
