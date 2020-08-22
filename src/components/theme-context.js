@@ -1,26 +1,102 @@
 import React from 'react'
 import useDarkMode from 'use-dark-mode'
 import { lightTheme, darkTheme, starTheme } from '../styles/theme'
+import Header from './header'
+import Footer from './footer'
+import '../styles/styles.scss'
+// import StarLayout from './star-layout'
+import styled from 'styled-components'
 
-const ThemeContext = React.createContext()
+import SunIcon from '../assets/sun.inline.svg'
+import MoonIcon from '../assets/moon.inline.svg'
+import StarsIcon from '../assets/stars.inline.svg'
 
-const ThemeProvider = ({ children }) => {
+export const ThemeContext = React.createContext()
+
+const initialState = {
+    theme: lightTheme 
+}
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "Dark":
+            return {
+                ...state,
+                theme: darkTheme
+            }
+        case "Star":
+            return {
+                ...state,
+                theme: starTheme
+            }
+        default: 
+            return state
+    }
+}
+
+export const ThemeProvider = ({ children }) => {
+    const [state, dispatch] = React.useReducer(reducer, initialState)
+    const [theme, setTheme] = React.useState(lightTheme)
     
+    const toggleLightTheme = () => {
+        if (theme === darkTheme || starTheme) {
+            setTheme(lightTheme)
+        }
+    }
+    
+    const toggleDarkTheme = () => {
+        if (theme === lightTheme || starTheme) {
+            setTheme(darkTheme)
+        }
+    }
+    
+    const toggleStarTheme = () => {
+    
+        if (theme === lightTheme || darkTheme) {
+            setTheme(starTheme)
+        }
+    }
     
     return (
         <ThemeContext.Provider
             value={{
-                one,
-                two,
+                state,
+                dispatch
             }}
         >
-            {children}
+        <>
+            <Header />
+            <ModeIcons>
+                    <SunIcon    className='mode-icon'
+                                onClick={() => {
+                                    toggleLightTheme()
+                                    useDarkMode.disable()
+                                }}
+                                alt='sun icon for light mode'
+                    />
+                    <MoonIcon   className='mode-icon' 
+                                onClick={() => {
+                                    toggleDarkTheme()
+                                    useDarkMode.enable()
+                                }}
+                                alt='moon icon for dark mode'
+                    />
+                    <StarsIcon  className='mode-icon'
+                                onClick={() => {
+                                    toggleStarTheme()
+                                    useDarkMode.enable()
+                                }}
+                                alt='stars icon for star mode'
+                    />
+                </ModeIcons>
+                    {children}
+                <Footer />
+            </>
         </ThemeContext.Provider>
     )
 }
 
-
-
-export default ThemeContext
-
-export { ThemeProvider }
+const ModeIcons = styled.div`
+    display: flex;
+    justify-content: center;    
+`
