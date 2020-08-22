@@ -4,7 +4,7 @@ import { lightTheme, darkTheme, starTheme } from '../styles/theme'
 import Header from './header'
 import Footer from './footer'
 import '../styles/styles.scss'
-// import StarLayout from './star-layout'
+import StarLayout from './star-layout'
 import styled from 'styled-components'
 
 import SunIcon from '../assets/sun.inline.svg'
@@ -66,6 +66,7 @@ export const ThemeProvider = ({ children }) => {
             }}
         >
         <>
+        <div className="App">{state.starTheme ? <StarLayout /> : null}
             <Header />
             <ModeIcons>
                     <SunIcon    className='mode-icon'
@@ -92,6 +93,7 @@ export const ThemeProvider = ({ children }) => {
                 </ModeIcons>
                     {children}
                 <Footer />
+            </div>
             </>
         </ThemeContext.Provider>
     )
