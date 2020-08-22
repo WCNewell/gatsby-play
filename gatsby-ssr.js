@@ -1,8 +1,6 @@
 import React from 'react'
-import App from './src/components/app'
+import { ThemeProvider } from './src/components/theme-context'
 
 export const wrapRootElement = ({ element }) => (
-    <>
-        <App>{element}</App>
-    </>
+    <ThemeProvider>{element}</ThemeProvider>
 )
