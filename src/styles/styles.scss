@@ -12,13 +12,10 @@ body {
 
 body.light-mode {
   background-color: #effffa;
-  color: #0d0c1d;
-  transition: background-color 0.3s ease;
 }
 
 body.dark-mode {
   background-color: #0b0111;
-  color: #effffa;
 }
 
 .mode-icon {

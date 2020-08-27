@@ -1,6 +1,6 @@
 import React from 'react'
-import { ThemeProvider } from './src/components/theme-context'
+import App from './src/components/app'
 
-export const wrapPageElement = ({ element }) => (
-    <ThemeProvider>{element}</ThemeProvider>
+export const wrapRootElement = ({ element }) => (
+    <App>{element}</App>
 )
