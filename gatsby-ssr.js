@@ -1,6 +1,3 @@
-import React from 'react'
-import App from './src/components/app'
+import wrap from './root-wrapper'
 
-export const wrapRootElement = ({ element }) => (
-    <App>{element}</App>
-)
+export const wrapRootElement = wrap
