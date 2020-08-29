@@ -16,9 +16,6 @@ const themes = {
     },
     dark: {
         text: '#effffa'
-    },
-    star: {
-        text: '#efc07b'
     }
 }
 
