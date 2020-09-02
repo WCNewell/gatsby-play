@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-play",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A sandbox for experimenting with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Clark Newell <clark@clarknewell.tech>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.20.8",
@@ -35,7 +35,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build && sleep 300",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
