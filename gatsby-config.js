@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby sandbox`,
     description: `Using the Gatsby default starter as a sandbox for styling experimentation.`,
-    author: `@gatsbyjs`,
+    author: `Clark Newell`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
