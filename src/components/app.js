@@ -7,24 +7,22 @@ import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'
 
 import StarLayout from './star-layout'
-// import lightTheme from './light-theme'
-// import darkTheme from './dark-theme'
 import styled from 'styled-components'
 import '../styles/global-styles.scss'
 
-export const ThemeContext = React.createContext('light')
+export const ThemeContext = React.createContext('day')
 
 const App = ({ children }) => {
-    const [theme, setTheme] = React.useState('light')
+    const [theme, setTheme] = React.useState('night')
     const darkMode = useDarkMode(false)
 
     
     const toggleTheme = () => {
-        theme === darkMode ? setTheme('dark') : setTheme('light')
+        theme === darkMode ? setTheme('night') : setTheme('day')
     }
     
     return (
-        <ThemeContext.Provider value={'dark'}>
+        <ThemeContext.Provider value={'night'}>
         <>
             <Layout />
                 <ModeIcons>
@@ -40,7 +38,7 @@ const App = ({ children }) => {
                                     toggleTheme()
                                     darkMode.enable()
                                 }}
-                                alt='moon icon for dark mode'
+                                alt='moon icon for dark star mode'
                     />
                 </ModeIcons>
                 <Header />
@@ -56,7 +54,7 @@ export default App
 const Layout = () => {
     const theme = React.useContext(ThemeContext)
     return (
-        theme === 'dark' ? <StarLayout /> : null
+        theme === 'night' ? <StarLayout /> : null
     )
 }
 
