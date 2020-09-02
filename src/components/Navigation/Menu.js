@@ -10,17 +10,13 @@ const Menu = ({ open, ...props }) => {
 
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-      <Link to="/" tabIndex={tabIndex}>
+      <Link to="/" tabIndex={tabIndex} onClick={isHidden === true}>
         <span aria-hidden="true"></span>
         home
       </Link>
-      <Link to="/about" tabIndex={tabIndex}>
+      <Link to="/about" tabIndex={tabIndex} onClick={isHidden === true}>
         <span aria-hidden="true"></span>
         about
-        </Link>
-      <Link to="/contact" tabIndex={tabIndex}>
-        <span aria-hidden="true"></span>
-        contact
         </Link>
     </StyledMenu>
   )
@@ -53,6 +49,7 @@ export const StyledMenu = styled.nav`
     font-weight: bold;
     letter-spacing: 0.5rem;
     color: ${({ theme }) => theme.primaryDark};
+    outline: none;
     text-decoration: none;
     transition: color 0.3s linear;
 

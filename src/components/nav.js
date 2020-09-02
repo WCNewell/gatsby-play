@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { useOnClickOutside } from '../hooks';
-import { Burger, Menu } from './Navigation'
+import { useOnClickOutside } from './navigation/hooks';
+import { Burger, Menu } from './navigation'
 
 
 const Nav = () => {

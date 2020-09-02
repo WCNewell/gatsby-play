@@ -1,100 +1,65 @@
-import React, { useState } from 'react'
-import { ThemeProvider } from 'styled-components'
-import { GlobalStyles } from './styles/global'
-import { lightTheme, darkTheme, starTheme } from './theme'
-import styled from 'styled-components'
-import '../components/styles/styles.css'
-
-import Nav from './nav'
-import Layout from './styles/layout'
-import StarLayout from './styles/starLayout'
+import React from 'react'
+import useDarkMode from 'use-dark-mode'
+import Header from './header'
+import Footer from './footer'
 
 import SunIcon from '../assets/sun.inline.svg'
 import MoonIcon from '../assets/moon.inline.svg'
-import StarsIcon from '../assets/stars.inline.svg'
 
-const App = () => {
-    const [theme, setTheme] = useState(lightTheme)
-    // const [layout, setStarLayout] = useState(starTheme)
+import StarLayout from './star-layout'
+import styled from 'styled-components'
+import '../styles/global-styles.scss'
+
+export const ThemeContext = React.createContext('day')
+
+const App = ({ children }) => {
+    const [theme, setTheme] = React.useState('night')
+    const darkMode = useDarkMode(false)
+
     
-    const toggleLightTheme = () => {
-        if (theme === darkTheme || starTheme) {
-            setTheme(lightTheme)
-        }
+    const toggleTheme = () => {
+        theme === darkMode ? setTheme('night') : setTheme('day')
     }
     
-    const toggleDarkTheme = () => {
-        if (theme === lightTheme || starTheme) {
-            setTheme(darkTheme)
-        }
-    }
-    
-    const toggleStarTheme = () => {
-        if (theme === lightTheme || darkTheme) {
-            setTheme(starTheme)
-        }
-    }
-
-    // function if theme === !lightTheme then inject starLayout
-
-    // const isStarTheme = () => {
-    //     if (theme === starTheme) {
-    //             setTheme(<StarLayout />)
-    //     }
-    //     return <Layout />
-    // }
-    
-    // const toggleStarLayout = () => {
-    //     if (theme === !lightTheme || !darkTheme) {
-    //         return <StarLayout />
-    //     }
-    //     return <StarLayout />
-    // }
-    
-    // const toggleStarLayout = () => {
-    //     if (theme === starTheme) {
-    //         setStarLayout(StarLayout)
-    //     }
-    // }
-
     return (
-        <ThemeProvider theme={theme}>
-            <>
-               <GlobalStyles />
-               <StarLayout />
-               <Layout />
-                    <ModeIcons>
-                        <SunIcon    className='mode-icon'
-                                    onClick={toggleLightTheme}
-                                    alt='sun icon for light mode'
-                        />
-                        <MoonIcon   className='mode-icon' 
-                                    onClick={toggleDarkTheme}
-                                    alt='moon icon for dark mode'
-                        />
-                        <StarsIcon  className='mode-icon'
-                                    onClick={toggleStarTheme}
-                                    alt='stars icon for star mode'
-                        />
-                    </ModeIcons>
-                <Nav />
-                <div>
-                    <h1>Hello. React hook demo for burger menu ala mode with Styled-Components and Sass.</h1>
-                </div>
-                <footer>
-                    © {new Date().getFullYear()}, Built with
-                    {` `}
-                    <a href="https://www.gatsbyjs.org">Gatsby</a>
-                </footer>
-            </>  
-        </ThemeProvider>
+        <ThemeContext.Provider value={'night'}>
+        <>
+            <Layout />
+                <ModeIcons>
+                    <SunIcon    className='mode-icon'
+                                onClick={() => {
+                                    toggleTheme()
+                                    darkMode.disable()
+                                }}
+                                alt='sun icon for light mode'
+                    />
+                    <MoonIcon   className='mode-icon' 
+                                onClick={() => {
+                                    toggleTheme()
+                                    darkMode.enable()
+                                }}
+                                alt='moon icon for dark star mode'
+                    />
+                </ModeIcons>
+                <Header />
+                    {children}
+                <Footer />
+        </>
+        </ThemeContext.Provider>
     )
 }
 
 export default App
 
+const Layout = () => {
+    const theme = React.useContext(ThemeContext)
+    return (
+        theme === 'night' ? <StarLayout /> : null
+    )
+}
+
 const ModeIcons = styled.div`
     display: flex;
     justify-content: center;
-    
+    margin-top: 20px;
 `
